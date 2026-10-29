@@ -1,0 +1,71 @@
+﻿방구석 중계단 0.4.11 무료 베타 배포 자산 명세 (2026-10-29)
+
+1. 코드 / 대사 / 아이콘 / UI
+이 프로젝트에서 직접 작성한 코드, 규칙, 대사와 코드로 그린 앱 아이콘.
+2026-10-29 경기장 조명·관중석·그라운드·LED 숫자는 이 프로젝트의 기하 도형 코드로 직접 제작.
+외부 경기장 사진이나 방송사 그래픽을 복제하거나 추가하지 않음.
+타사의 방송 화면, 음악, 실존 해설위원의 이름이나 목소리를 사용하지 않음.
+아래 MIT는 프로젝트가 제공할 수 있는 권리 범위에 적용하며 외부 서비스·시스템 폰트/음성에는 적용하지 않음.
+
+MIT License
+Copyright (c) 2026 Room Commentators contributors
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+2. 캐릭터 시트 assets/characters.png
+2026-10-28 OpenAI 이미지 생성 도구로 이 프로젝트를 위해 새로 제작.
+호들(주황 재킷), 담담(파란 재킷), 각각 두 표정. 외부 참조 이미지나 실존 인물 모사 지시 없음.
+앱에서는 원본 시트의 네 구역을 렌더링하고 위치를 움직임. 생성 모델 가중치는 포함하지 않음.
+OpenAI 약관의 출력 권리 조항을 확인. 생성물의 독점성이나 제3자와의 비유사성을 보증하는 것은 아님.
+https://openai.com/policies/row-terms-of-use/
+생성 이미지를 수작업으로 그렸다고 표시하지 않음.
+
+3. .NET / Windows 음성 / 폰트
+.NET Framework, System.Speech, Windows API를 참조. 런타임 및 음성 모델을 재배포하지 않음.
+개발 PC 기본 음성: Microsoft Heami Desktop. 직접 고친 대사에서만 대체 음성으로 사용. 기본 20개 대사는 아래의 별도 AI 합성 음성.
+Windows 기본 합성 음성의 상업 홍보 영상 재배포 권한은 확인이 남음.
+이번 고정 대사 시연 영상에는 Windows 음성을 사용하지 않음.
+https://learn.microsoft.com/en-us/dotnet/api/system.speech.synthesis.speechsynthesizer
+맑은 고딕은 설치된 시스템 폰트로 사용. 글꼴 파일은 포함하지 않음.
+
+4. 선택적 Gemini 음성 제작
+구현 모델: gemini-3.8-flash-tts. 예정된 기본 목소리: Puck / Charon.
+2026-10-28 공식 API/가격/약관 확인. 이 패키지에는 생성된 Gemini 음성이 아직 없음.
+Google은 생성 콘텐츠의 소유권을 주장하지 않는다고 명시하지만, 제작자에게 약관·권리 준수 책임이 있음.
+계정/연령/지역/서비스 조건을 포함해 제작자의 이용 환경에 적용되는 약관 확인 필요.
+무료 서비스 입력/출력의 서비스 개선 사용과 유료 서비스 조건은 다르므로 제작 UI에서 알림.
+고정 대사와 말투 지시만 요청. 작업 원문/화면/사용자 첨부 MP3를 전송하지 않음.
+API 키를 소스/설치파일/로그에 포함하지 않음. 정상 사용 시 음성은 기기에서 재생.
+사용자 첨부 MP3는 참고용이며 권리 이전 자료가 아님. 복제·배포·목소리 복제·클라우드 업로드하지 않음.
+Gemini 음성은 아직 없음. 현재 내장 WAV는 아래 Supertonic 로컬 합성 결과임.
+https://ai.google.dev/gemini-api/docs/speech-generation
+https://ai.google.dev/gemini-api/docs/pricing
+https://ai.google.dev/gemini-api/terms
+
+5. 영상
+AVI/PCM 작성 코드는 직접 구현. JPEG는 .NET System.Drawing 사용.
+https://learn.microsoft.com/en-us/windows/win32/directshow/avi-riff-file-reference
+FFmpeg는 제품에 포함하지 않음. 개발용 MP4 변환 도구로 사용했을 때만 검증 보고서에 기록.
+https://ffmpeg.org/legal.html
+0.3 실제 글자별 타이핑 시연을 2026-10-29 촬영. 자동 하이라이트와 소개 편집본을 구분.
+
+6. VS Code 확장
+확장 소스는 위 MIT 적용. VS Code, Node.js 런타임 자체를 패키지에 포함하지 않음.
+원문 없는 지표 통신에 Node.js 내장 crypto 사용. 외부 패키지 의존성 없음.
+https://code.visualstudio.com/api/references/vscode-api
+
+7. 내장 AI 합성 음성 (2026-10-29)
+Supertonic 3, 공개 기본 프리셋 M1/M3로 이 프로젝트 대사 20개를 로컬 생성.
+사용자 참조 MP3나 특정인 음성을 입력하거나 복제하지 않음.
+모델: supertone-oss-archive/supertonic-3
+고정 리비전: aafc6e32416a594460b32413efc49d7fe4ce6d46
+모델 라이선스: BigScience Open RAIL-M (사용 제한 포함). 출력 권리는 제작자 책임.
+라이선스 6조는 모델 제공자가 출력 권리를 주장하지 않음을 명시하며, 사용 제한 준수 필요.
+실제 중계 화면·영상에 AI 합성 음성을 표시함. 실존 인물 모사/보증/제휴 주장 없음.
+라이선스 전문과 생성물 해시는 소스 assets/voices에 보관.
+https://huggingface.co/supertone-oss-archive/supertonic-3/blob/main/LICENSE
+개발용 helper 코드는 MIT, ONNX Runtime은 MIT. 앱에는 이 코드나 모델 가중치를 포함하지 않음.
+배포 실행 파일에는 생성된 PCM WAV만 포함. 합성 시 원문/음성이 외부 서버로 전송되지 않음.
+모델 저장소는 보관 상태이므로 향후 유지보수·버그 수정은 제공되지 않음.
+샘플 청취에 대한 사용자 긍정 반응을 받았으나, 전문 성우 연기 수준을 검증한 것은 아님.
