@@ -1,0 +1,54 @@
+name: 문제 제보 / Bug report
+description: 설치, 중계, 음성 또는 영상 문제를 알려주세요. Report an install, commentary, voice or video problem.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        한국어와 English 모두 가능합니다. Issues are public.
+        개인 원고·비밀번호·API 키는 제외해 주세요. Leave out private writing, passwords and API keys.
+  - type: input
+    id: version
+    attributes:
+      label: 앱 버전 / App version
+      placeholder: "0.4.11"
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows 버전 / Windows version
+      placeholder: "Windows 11, 24H2"
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: 사용 환경 / Where it happened
+      options:
+        - 전용 글쓰기 창 / Built-in editor
+        - VS Code 동행 / VS Code companion
+        - 설치·제거 / Installation or removal
+        - 영상 만들기 / Highlight export
+        - 목소리 설정 / Voice settings
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 방법 / Steps to reproduce
+      description: 어떤 순서로 조작했나요? What did you do, in order?
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: 기대한 결과와 실제 결과 / Expected and actual result
+      description: 오류 문구가 있으면 포함해 주세요. Include the error text, if any.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 추가 정보 / Optional details
+      description: 녹화·음소거 상태, 화면 배율, 개인 내용을 가린 화면이나 영상 등. Recording/mute status, display scaling, or a redacted screenshot/clip.
